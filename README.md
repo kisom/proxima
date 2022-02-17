@@ -1,5 +1,7 @@
 # PROXIMA MISSION
 
+*Note*: the Github repo is not the primary repo; it's here for visibility.
+
 ## Quick links
 
 * [Mathematica notebook](https://www.wolframcloud.com/env/kyle/Published/proxima.nb)
