@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Proxima Centauri Mission Control</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta property="og:title" content="Proxima Centauri mission" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://proxima.wntrmute.net/" />
+</head>
+
+<body>
+    <h1>Mission Status</h1>
+    {{if .Simulation}}
+    <p><strong>The mission is currently in the shakedown phase and is in simulation mode.</strong></p>
+    {{end}}
+    <p>You can read some background about the mission in <a href="https://www.wolframcloud.com/env/kyle/Published/proxima.nb">this Mathematica notebook</a>.</p>
+    {{if .NoUpdates}}
+    <p>No mission in progress.</p>
+    {{else}}
+    <p>Last update: {{.Timestamp}} GMT</p>
+    <ul>
+        <li>Ship name: Beauty of the Deep Night</li>
+        <li>Mission phase: {{.Phase}}</li>
+        <li>Mission elapsed time: {{.Elapsed}}</li>
+        <li>Clock drift: {{.Drift}}</li>
+        <li>Ship clock: {{.Clock.Observer}}</li>
+        <li>Earth clock: {{.Clock.Relative}}</li>
+        <li>Current velocity: {{.State.Velocity}} km/s({{.State.VelocityPC}}c)</li>
+        <li>Distance traveled: {{.State.Distance}}</li>
+        <li>Distance remaining: {{.State.Remaining}}</li>
+    </ul>
+    {{if .HasMilestones }}
+    <p>Milestones:</p>
+    <ul>
+        {{range .Milestones}}
+        <li>{{.}}</li>
+        {{end}}
+    </ul>
+    {{end}}
+    {{end}}
+    <h3>More information</h3>
+    <ul>
+        <li><a href="https://www.wolframcloud.com/env/kyle/Published/proxima.nb">Mathematica notebook</a></li>
+        <li><a href="https://git.sr.ht/~kisom/proxima">Source code</a></li>
+        <li><a href="gemini://freeside.wntrmute.net/projects/proxima">Gemini homepage</a></li>
+    </ul>
+</body>
+</html>

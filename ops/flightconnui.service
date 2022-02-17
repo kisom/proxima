@@ -1,0 +1,15 @@
+[Unit]
+Description=Launch the Proxima Centauri mission user interface.
+After=
+Wants=
+
+[Service]
+Restart=always
+Type=simple
+ExecStart=python3 /home/pi/proxima/cmd/flightconnui/flightconnui.py
+WorkingDirectory=/home/pi/proxima
+User=pi
+Environment=
+
+[Install]
+WantedBy=multi-user.target 

@@ -1,0 +1,16 @@
+__pycache__
+cmd/flightconn/flightconn
+cmd/flightsim/flightsim
+cmd/flightsim_test/flightsim_test
+cmd/flightsim_test/flightsim_test.test
+cmd/missionctl/missionctl
+cmd/relay/relay
+ops/proxima.conf
+
+# pprof artifacts
+*.out
+*.cpu
+*.mem
+
+# ignore goland stuff
+.idea
