@@ -49,7 +49,7 @@ it finishes, which is a little sobering.
 
 ### Raspberry Pi / flight hardware
 
-![](https://raw.githubusercontent.com/kisom/proxima/master/hardware.jpg)
+![](hardware.jpg)
 
 The flight control software runs on a Raspberry Pi 3B.
 
