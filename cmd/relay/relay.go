@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"flag"
+	"fmt"
 	"log"
 	"net/http"
 
@@ -35,6 +36,12 @@ func postUpdate(addr string, stats *handler.Update) error {
 	resp, err := handler.WithBasicAuth(addr, "text/json", buf)
 	if err != nil {
 		return err
+	}
+
+	if resp.StatusCode != http.StatusOK {
+		log.Printf("HTTP POST failed: %d %s",
+			resp.StatusCode, resp.Status)
+		return fmt.Errorf("relay: HTTP %d: %s", resp.StatusCode, resp.Status)
 	}
 
 	resp.Body.Close()

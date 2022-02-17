@@ -3,6 +3,7 @@ package handler
 import (
 	"crypto/subtle"
 	"io"
+	"log"
 	"net/http"
 	"time"
 
@@ -34,6 +35,7 @@ func WithBasicAuth(url string, contentType string, r io.Reader) (*http.Response,
 func CheckBasicAuth(req *http.Request) bool {
 	ruser, rpassword, ok := req.BasicAuth()
 	if !ok {
+		log.Println("request isn't using basic auth")
 		return false
 	}
 
@@ -46,5 +48,5 @@ func CheckBasicAuth(req *http.Request) bool {
 		[]byte(rpassword),
 	)
 
-	return subtleUser&subtlePassword == 0
+	return subtleUser&subtlePassword == 1
 }
